@@ -114,28 +114,15 @@ vim.lsp.enable('pyrefly')
 vim.cmd.colorscheme('catppuccin')
 
 -- Diagnostics
-local signicons = {
-    Error = " ",
-    Warn = " ",
-    Hint = "󰌵 ",
-    Info = " "
-}
-local signs = {
-    text = {},
-    linehl = {},
-    numhl = {},
-}
-for type, icon in pairs(signicons) do
-    local severityName = string.upper(type)
-    local severity = vim.diagnostic.severity[severityName]
-    local hl = "DiagnosticSign" .. type
-    signs.text[severity] = icon
-    signs.linehl[severity] = hl
-    signs.numhl[severity] = hl
-end
-
 vim.diagnostic.config({
-    signs = signs,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+        },
+    },
     virtual_lines = true,
 })
 
