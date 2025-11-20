@@ -13,8 +13,8 @@ vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter.git',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
     'https://github.com/rcarriga/nvim-notify.git',
-    { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
     { src = "https://github.com/catppuccin/nvim.git", name = "catppuccin" },
+    { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
 require('blink.cmp').setup()
 require('bufferline').setup()
