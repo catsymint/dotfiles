@@ -108,7 +108,7 @@ require('trouble').setup()
 
 -- LSP (TODO: enable more servers)
 vim.lsp.enable('clangd')
-vim.lsp.enable('pyrefly')
+vim.lsp.enable('pyright')
 
 -- Theme
 vim.cmd.colorscheme('catppuccin')
@@ -183,15 +183,9 @@ vim.keymap.set('n', '<Leader>v', '<C-w>v')
 vim.keymap.set('n', '<Leader><Space>', '<Cmd>noh<CR>')
 vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>')
 vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>')
-vim.lsp.config('*', {
-    on_attach = function (_, bufnr)
-        local opts = { buffer = bufnr }
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, opts)
-    end
-})
-
+vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>')
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
