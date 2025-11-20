@@ -1,0 +1,21 @@
+[alias]
+	ci = commit
+	dc = diff --cached
+	dft = difftool
+	st = status
+	in = log ..@{upstream}
+	out = log @{upstream}..
+[core]
+	pager = delta
+[delta]
+	navigate = true
+[diff]
+	renames = copies
+[include]
+	path = user
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictstyle = zdiff3
