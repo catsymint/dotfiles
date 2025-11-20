@@ -22,7 +22,7 @@ require('fzf-lua').setup()
 require('ibl').setup({
     scope = { show_end = false, show_start = false },
 })
-require('lualine').setup()
+require('lualine').setup({ options = { globalstatus = true }})
 require('noice').setup({
     lsp = {
     override = {
