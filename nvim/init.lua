@@ -8,7 +8,9 @@ vim.pack.add({
     'https://github.com/lukas-reineke/indent-blankline.nvim.git',
     'https://github.com/MunifTanjim/nui.nvim.git',
     'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/nvim-lua/plenary.nvim.git',
     'https://github.com/nvim-lualine/lualine.nvim.git',
+    'https://github.com/nvim-neo-tree/neo-tree.nvim.git',
     'https://github.com/nvim-tree/nvim-web-devicons.git',
     'https://github.com/nvim-treesitter/nvim-treesitter.git',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
@@ -23,6 +25,11 @@ require('ibl').setup({
     scope = { show_end = false, show_start = false },
 })
 require('lualine').setup({ options = { globalstatus = true }})
+require('neo-tree').setup({
+    window = {
+        width = 30,
+    },
+})
 require('noice').setup({
     lsp = {
     override = {
@@ -176,6 +183,7 @@ vim.keymap.set({'n', 'v', 'o'}, '<Leader>p', '"+p')
 vim.keymap.set('c', '<C-a>', '<Home>')
 vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>')
 vim.keymap.set('n', '<Leader>w', '<Cmd>bd<CR>')
+vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<Leader>f', FzfLua.files)
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
 vim.keymap.set('n', '<Leader>s', '<C-w>s')
