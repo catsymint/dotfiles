@@ -21,10 +21,6 @@
       "rev": "cdafc320f03f2572c40ab93a4eecb733d4016d07",
       "src": "https://github.com/lewis6991/gitsigns.nvim.git"
     },
-    "indent-blankline.nvim": {
-      "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
-      "src": "https://github.com/lukas-reineke/indent-blankline.nvim.git"
-    },
     "lualine.nvim": {
       "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
       "src": "https://github.com/nvim-lualine/lualine.nvim.git"
