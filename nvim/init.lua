@@ -1,42 +1,50 @@
--- Plugins
+-- plugins
 vim.pack.add({
-    'https://github.com/akinsho/bufferline.nvim.git',
-    'https://github.com/folke/noice.nvim.git',
-    'https://github.com/folke/snacks.nvim.git',
-    'https://github.com/folke/trouble.nvim.git',
-    'https://github.com/ibhagwan/fzf-lua.git',
-    'https://github.com/lukas-reineke/indent-blankline.nvim.git',
-    'https://github.com/MunifTanjim/nui.nvim.git',
-    'https://github.com/neovim/nvim-lspconfig',
-    'https://github.com/nvim-lua/plenary.nvim.git',
-    'https://github.com/nvim-lualine/lualine.nvim.git',
-    'https://github.com/nvim-neo-tree/neo-tree.nvim.git',
-    'https://github.com/nvim-tree/nvim-web-devicons.git',
-    'https://github.com/nvim-treesitter/nvim-treesitter.git',
-    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
-    'https://github.com/rcarriga/nvim-notify.git',
+    'https://github.com/akinsho/bufferline.nvim.git', -- buffer tabs
+    'https://github.com/folke/noice.nvim.git', -- ui/notif niceties
+    'https://github.com/folke/snacks.nvim.git', -- bigfile/quickload/anims
+    'https://github.com/folke/trouble.nvim.git', -- diagnostic window
+    'https://github.com/ibhagwan/fzf-lua.git', -- fuzzy file finder
+    'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
+    'https://github.com/MunifTanjim/nui.nvim.git', -- library
+    'https://github.com/neovim/nvim-lspconfig', -- language server setup
+    'https://github.com/nvim-lua/plenary.nvim.git', -- library
+    'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
+    'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
+    'https://github.com/nvim-tree/nvim-web-devicons.git', -- icon library
+    'https://github.com/nvim-treesitter/nvim-treesitter.git', -- syntax
+    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
+    'https://github.com/rcarriga/nvim-notify.git', -- library
+    -- theme
     { src = "https://github.com/catppuccin/nvim.git", name = "catppuccin" },
+    -- autocompletion
     { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
 require('blink.cmp').setup()
 require('bufferline').setup()
 require('fzf-lua').setup()
 require('ibl').setup({
+    -- don't show scope borders
     scope = { show_end = false, show_start = false },
 })
-require('lualine').setup({ options = { globalstatus = true }})
+require('lualine').setup({ options = {
+    -- make status line span windows
+    globalstatus = true
+}})
 require('neo-tree').setup({
     window = {
-        width = 30,
+        width = 30, -- default was 40
     },
 })
 require('noice').setup({
     lsp = {
-    override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-        ["vim.lsp.util.stylize_markdown"] = true,
+        override = {
+            -- override the default lsp markdown formatter with noice
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            -- override the lsp markdown formatter with noice
+            ["vim.lsp.util.stylize_markdown"] = true,
+        },
     },
-  },
 })
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
@@ -50,6 +58,7 @@ require('nvim-treesitter.configs').setup({
     sync_install = false,
     auto_install = true,
     highlight = { enable = true },
+    -- define text objects for classes, functions, and blocks
     textobjects = {
         select = {
             enable = true,
@@ -107,21 +116,22 @@ require('nvim-treesitter.configs').setup({
     },
 })
 require('snacks').setup({
-    bigfile = { enabled = true },
-    quickfile = { enabled = true },
-    scroll = { enabled = true },
+    bigfile = { enabled = true }, -- limit plugins on large files
+    quickfile = { enabled = true }, -- speed up startup time
+    scroll = { enabled = true }, -- smooth scrolling for motions
 })
 require('trouble').setup()
 
--- LSP (TODO: enable more servers)
-vim.lsp.enable('clangd')
-vim.lsp.enable('pyright')
+-- lsp
+vim.lsp.enable('clangd') -- c/c++
+vim.lsp.enable('pyright') -- python (uv tool install -U pyright)
 
--- Theme
+-- theme
 vim.cmd.colorscheme('catppuccin')
 
--- Diagnostics
+-- diagnostics
 vim.diagnostic.config({
+    -- replace default ascii icons with fancy ones
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '',
@@ -132,20 +142,20 @@ vim.diagnostic.config({
     },
 })
 
--- General
-vim.o.autowrite = true
-vim.o.cursorline = true
-vim.o.mouse = 'a'
-vim.o.number = true
-vim.o.scrolloff = 4
-vim.o.sidescrolloff = 8
-vim.o.signcolumn = 'yes'
-vim.o.showmatch = true
-vim.o.smoothscroll = true
-vim.o.title = true
-vim.opt.virtualedit:append('block')
+-- general
+vim.o.autowrite = true -- auto-save in certain situations
+vim.o.cursorline = true -- highlight line cursor is on
+vim.o.mouse = 'a' -- enable mouse support
+vim.o.number = true -- show line numbers
+vim.o.scrolloff = 4 -- lines of context to show when scrolling
+vim.o.sidescrolloff = 8 -- same but horizontally
+vim.o.signcolumn = 'yes' -- always show diagnostic gutter
+vim.o.showmatch = true -- highlight opening bracket when typing close bracket
+vim.o.smoothscroll = true -- smoothly scroll within wrapped lines
+vim.o.title = true -- set terminal title
+vim.opt.virtualedit:append('block') -- enable virtual editing in visual block
 
--- List/whitespace
+-- list/whitespace
 vim.opt.list = true
 vim.opt.listchars = {
     extends = "…",
@@ -156,45 +166,57 @@ vim.opt.listchars = {
 }
 vim.opt.showbreak = "↳"
 
--- Formatting
-vim.opt.formatoptions:remove('o')
-vim.opt.formatoptions:remove('t')
-vim.opt.formatoptions:append('jn1')
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
+-- formatting
+vim.opt.formatoptions:remove('o') -- disable auto-comment
+vim.opt.formatoptions:remove('t') -- disable auto-wrap
+vim.opt.formatoptions:append('j') -- join comments
+vim.opt.formatoptions:append('n') -- format numbered lists
+vim.opt.formatoptions:append('1') -- don't break lines after one letter words
+vim.o.expandtab = true -- expand tabs to spaces
+vim.o.shiftwidth = 4 -- shift by 4 whitespace
+vim.o.softtabstop = 4 -- 4 spaces per tab
 
--- Search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+-- search
+vim.o.ignorecase = true -- case-insensitive search
+vim.o.smartcase = true -- case-sensitive with uppercase letters
 
--- Backups
-vim.o.backup = true
+-- backups
+vim.o.backup = true -- enable backup files
+-- only put backup files in the state folder (not alongside the actual file)
 vim.o.backupdir = vim.fn.stdpath('state') .. '/backup//'
-vim.o.swapfile = false
-vim.o.undofile = true
+vim.o.swapfile = false -- disable swap file support
+vim.o.undofile = true -- create undo files (in the state folder)
 
--- Mappings
-vim.g.mapleader = ','
-vim.g.maplocalleader = '\\'
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>y', '"+y')
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>p', '"+p')
-vim.keymap.set('c', '<C-a>', '<Home>')
-vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>')
-vim.keymap.set('n', '<Leader>w', '<Cmd>bd<CR>')
+-- mappings
+vim.g.mapleader = ',' -- prefix for global shortcuts
+vim.g.maplocalleader = '\\' -- prefix for buffer-specific shortcuts
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>y', '"+y') -- os-level copy
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>p', '"+p') -- os-level paste
+vim.keymap.set('c', '<C-a>', '<Home>') -- make ^A work in the command line
+vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>') -- quit
+vim.keymap.set('n', '<Leader>w', '<Cmd>bd<CR>') -- close buffer
+-- toggle the file tree
 vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree reveal toggle<CR>')
-vim.keymap.set('n', '<Leader>f', FzfLua.files)
+vim.keymap.set('n', '<Leader>f', FzfLua.files) -- open fuzzy file finder
+-- toggle diagnostic list
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
-vim.keymap.set('n', '<Leader>s', '<Cmd>w<CR>')
-vim.keymap.set('n', '<Leader>h', '<C-w>s')
-vim.keymap.set('n', '<Leader>v', '<C-w>v')
-vim.keymap.set('n', '<Leader>1', '<C-w>o')
+vim.keymap.set('n', '<Leader>s', '<Cmd>w<CR>') -- save file
+vim.keymap.set('n', '<Leader>h', '<C-w>s') -- split window horizontally
+vim.keymap.set('n', '<Leader>v', '<C-w>v') -- split window vertically
+vim.keymap.set('n', '<Leader>1', '<C-w>o') -- close all other windows
+-- turn off search highlights
 vim.keymap.set('n', '<Leader><Space>', '<Cmd>noh<CR>')
-vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>')
-vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>')
+vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>') -- next buffer
+vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>') -- previous buffer
+-- jump to definition
 vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+-- show references
 vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>')
+-- jump to implementation(s) (of abstract classes)
 vim.keymap.set('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>')
+-- display information about the item under the cursor
 vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+-- rename variable/etc.
 vim.keymap.set('n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>')
+-- show code action menu
 vim.keymap.set('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
