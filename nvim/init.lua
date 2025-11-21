@@ -6,6 +6,7 @@ vim.pack.add({
     'https://github.com/folke/trouble.nvim.git', -- diagnostic window
     'https://github.com/ibhagwan/fzf-lua.git', -- fuzzy file finder
     'https://github.com/lewis6991/gitsigns.nvim.git', -- git in statuscol
+    'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
     'https://github.com/luukvbaal/statuscol.nvim.git', -- nicer status column
     'https://github.com/MunifTanjim/nui.nvim.git', -- library
     'https://github.com/neovim/nvim-lspconfig.git', -- language server setup
@@ -31,6 +32,11 @@ require('blink.cmp').setup()
 require('bufferline').setup()
 require('fzf-lua').setup()
 require('gitsigns').setup()
+require('ibl').setup({
+    indent = { char = '│' },
+    -- don't show scope borders
+    scope = { show_end = false, show_start = false },
+})
 require('lualine').setup({ options = {
     -- make status line span windows
     globalstatus = true
@@ -121,7 +127,6 @@ require('nvim-treesitter.configs').setup({
 })
 require('snacks').setup({
     bigfile = { enabled = true }, -- limit plugins on large files
-    indent = { enabled = true }, -- indent/scope guides
     quickfile = { enabled = true }, -- speed up startup time
     scope = { enabled = true }, -- treesitter-based scope objects
     scroll = { enabled = true }, -- smooth scrolling for motions
