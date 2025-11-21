@@ -5,7 +5,9 @@ vim.pack.add({
     'https://github.com/folke/snacks.nvim.git', -- bigfile/quickload/anims
     'https://github.com/folke/trouble.nvim.git', -- diagnostic window
     'https://github.com/ibhagwan/fzf-lua.git', -- fuzzy file finder
+    'https://github.com/lewis6991/gitsigns.nvim.git', -- git in statuscol
     'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
+    'https://github.com/luukvbaal/statuscol.nvim.git', -- nicer status column
     'https://github.com/MunifTanjim/nui.nvim.git', -- library
     'https://github.com/neovim/nvim-lspconfig', -- language server setup
     'https://github.com/nvim-lua/plenary.nvim.git', -- library
@@ -23,6 +25,7 @@ vim.pack.add({
 require('blink.cmp').setup()
 require('bufferline').setup()
 require('fzf-lua').setup()
+require('gitsigns').setup()
 require('ibl').setup({
     -- don't show scope borders
     scope = { show_end = false, show_start = false },
@@ -120,6 +123,7 @@ require('snacks').setup({
     quickfile = { enabled = true }, -- speed up startup time
     scroll = { enabled = true }, -- smooth scrolling for motions
 })
+require('statuscol').setup()
 require('trouble').setup()
 
 -- lsp
@@ -145,6 +149,7 @@ vim.diagnostic.config({
 -- general
 vim.o.autowrite = true -- auto-save in certain situations
 vim.o.cursorline = true -- highlight line cursor is on
+vim.o.foldcolumn = '1' -- gutter column for folds
 vim.o.mouse = 'a' -- enable mouse support
 vim.o.number = true -- show line numbers
 vim.o.scrolloff = 4 -- lines of context to show when scrolling

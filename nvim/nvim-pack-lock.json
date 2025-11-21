@@ -17,6 +17,10 @@
       "rev": "3b4a5d13adeb33f387d744b6ed777bb5401cba94",
       "src": "https://github.com/ibhagwan/fzf-lua.git"
     },
+    "gitsigns.nvim": {
+      "rev": "cdafc320f03f2572c40ab93a4eecb733d4016d07",
+      "src": "https://github.com/lewis6991/gitsigns.nvim.git"
+    },
     "indent-blankline.nvim": {
       "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim.git"
@@ -64,6 +68,10 @@
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
       "src": "https://github.com/folke/snacks.nvim.git"
+    },
+    "statuscol.nvim": {
+      "rev": "c46172d0911aa5d49ba5f39f4351d1bb7aa289cc",
+      "src": "https://github.com/luukvbaal/statuscol.nvim.git"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
