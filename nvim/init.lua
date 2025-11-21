@@ -33,6 +33,7 @@ require('bufferline').setup()
 require('fzf-lua').setup()
 require('gitsigns').setup()
 require('ibl').setup({
+    -- make guide character lighter than the default pipe
     indent = { char = '│' },
     -- don't show scope borders
     scope = { show_end = false, show_start = false },
