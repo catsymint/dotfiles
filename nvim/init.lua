@@ -222,6 +222,6 @@ vim.keymap.set('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>')
 -- display information about the item under the cursor
 vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 -- rename variable/etc.
-vim.keymap.set('n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', '<Leader>r', '<Cmd>lua vim.lsp.buf.rename()<CR>')
 -- show code action menu
-vim.keymap.set('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
