@@ -42,8 +42,8 @@
       "src": "https://github.com/MunifTanjim/nui.nvim.git"
     },
     "nvim-lspconfig": {
-      "rev": "b7c48a7111534b66bee077da8035ac7208a294ff",
-      "src": "https://github.com/neovim/nvim-lspconfig"
+      "rev": "e0fae251f8459940331960106d4bd9457cec23de",
+      "src": "https://github.com/neovim/nvim-lspconfig.git"
     },
     "nvim-notify": {
       "rev": "8701bece920b38ea289b457f902e2ad184131a5d",

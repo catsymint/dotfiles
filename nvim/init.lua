@@ -9,7 +9,7 @@ vim.pack.add({
     'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
     'https://github.com/luukvbaal/statuscol.nvim.git', -- nicer status column
     'https://github.com/MunifTanjim/nui.nvim.git', -- library
-    'https://github.com/neovim/nvim-lspconfig', -- language server setup
+    'https://github.com/neovim/nvim-lspconfig.git', -- language server setup
     'https://github.com/nvim-lua/plenary.nvim.git', -- library
     'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
     'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
