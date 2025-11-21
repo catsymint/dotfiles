@@ -21,6 +21,12 @@ vim.pack.add({
     -- autocompletion
     { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
+
+-- theme
+require('catppuccin').setup({ auto_integrations = true })
+vim.cmd.colorscheme('catppuccin')
+
+-- setup
 require('blink.cmp').setup()
 require('bufferline').setup()
 require('fzf-lua').setup()
@@ -126,9 +132,6 @@ require('trouble').setup()
 -- lsp
 vim.lsp.enable('clangd') -- c/c++
 vim.lsp.enable('pyright') -- python (uv tool install -U pyright)
-
--- theme
-vim.cmd.colorscheme('catppuccin')
 
 -- diagnostics
 vim.diagnostic.config({
