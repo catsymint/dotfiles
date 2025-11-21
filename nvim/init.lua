@@ -18,7 +18,7 @@ vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
     'https://github.com/rcarriga/nvim-notify.git', -- library
     -- theme
-    { src = "https://github.com/catppuccin/nvim.git", name = "catppuccin" },
+    { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin' },
     -- autocompletion
     { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
@@ -50,9 +50,9 @@ require('noice').setup({
     lsp = {
         override = {
             -- override the default lsp markdown formatter with noice
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
             -- override the lsp markdown formatter with noice
-            ["vim.lsp.util.stylize_markdown"] = true,
+            ['vim.lsp.util.stylize_markdown'] = true,
         },
     },
 })
@@ -168,13 +168,13 @@ vim.opt.virtualedit:append('block') -- enable virtual editing in visual block
 -- list/whitespace
 vim.opt.list = true
 vim.opt.listchars = {
-    extends = "…",
-    nbsp = "␣",
-    precedes = "…",
-    tab = "⇥ ",
-    trail = "·",
+    extends = '…',
+    nbsp = '␣',
+    precedes = '…',
+    tab = '⇥ ',
+    trail = '·',
 }
-vim.opt.showbreak = "↳"
+vim.opt.showbreak = '↳'
 
 -- formatting
 vim.opt.formatoptions:remove('o') -- disable auto-comment
