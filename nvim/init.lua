@@ -194,13 +194,12 @@ vim.keymap.set({'n', 'v', 'o'}, '<Leader>y', '"+y') -- os-level copy
 vim.keymap.set({'n', 'v', 'o'}, '<Leader>p', '"+p') -- os-level paste
 vim.keymap.set('c', '<C-a>', '<Home>') -- make ^A work in the command line
 vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>') -- quit
-vim.keymap.set('n', '<Leader>w', '<Cmd>bd<CR>') -- close buffer
+vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>') -- save file
 -- toggle the file tree
 vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<Leader>f', FzfLua.files) -- open fuzzy file finder
 -- toggle diagnostic list
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
-vim.keymap.set('n', '<Leader>s', '<Cmd>w<CR>') -- save file
 vim.keymap.set('n', '<Leader>h', '<C-w>s') -- split window horizontally
 vim.keymap.set('n', '<Leader>v', '<C-w>v') -- split window vertically
 vim.keymap.set('n', '<Leader>1', '<C-w>o') -- close all other windows
@@ -208,6 +207,7 @@ vim.keymap.set('n', '<Leader>1', '<C-w>o') -- close all other windows
 vim.keymap.set('n', '<Leader><Space>', '<Cmd>noh<CR>')
 vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>') -- next buffer
 vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>') -- previous buffer
+vim.keymap.set('n', '<Leader>c', '<Cmd>bd<CR>') -- close buffer
 -- jump to definition
 vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
 -- show references
