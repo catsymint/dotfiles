@@ -35,7 +35,8 @@ set smarttab " indent/unindent by shiftwidth in leading whitespace
 set shiftwidth=4 " shift by 4 spaces
 set softtabstop=4 " expand tabs to 4 spaces
 set textwidth=78 " wrap lines at 78 characters when pasting/formatting
-autocmd FileType css,html,lua,xhtml,xml setlocal shiftwidth=8 softtabstop=2
+autocmd FileType css,html,lua,xhtml,xml,yaml
+                 \ setlocal shiftwidth=2 softtabstop=2
 autocmd FileType go,make setlocal noexpandtab shiftwidth=8 softtabstop=0
 autocmd FileType hgcommit,gitcommit setlocal formatoptions+=t
 autocmd FileType hgcommit,gitcommit setlocal textwidth=72

@@ -185,7 +185,7 @@ vim.o.shiftwidth = 4 -- shift by 4 spaces
 vim.o.softtabstop = 4 -- 4 spaces per expanded tab
 vim.o.textwidth = 78 -- wrap lines at 78 characters when pasting/formatting
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'css', 'html', 'lua', 'xhtml', 'xml'},
+  pattern = {'css', 'html', 'lua', 'xhtml', 'xml', 'yaml'},
   callback = function()
     vim.bo.shiftwidth = 2
     vim.bo.softtabstop = 2
