@@ -72,7 +72,7 @@ nnoremap <Leader>w <Cmd>w<CR>
 " open :e
 nnoremap <Leader>e <Esc>:e<Space>
 " split window horizontally
-nnoremap <Leader>h <C-w>s
+nnoremap <Leader>s <C-w>s
 " split window vertically
 nnoremap <Leader>v <C-w>v
 " close all other windows

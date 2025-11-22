@@ -231,7 +231,7 @@ vim.keymap.set('n', '<Leader>f', '<Cmd>Neotree reveal toggle<CR>')
 vim.keymap.set('n', '<Leader>e', FzfLua.files) -- open fuzzy file finder
 -- toggle diagnostic list
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
-vim.keymap.set('n', '<Leader>h', '<C-w>s') -- split window horizontally
+vim.keymap.set('n', '<Leader>s', '<C-w>s') -- split window horizontally
 vim.keymap.set('n', '<Leader>v', '<C-w>v') -- split window vertically
 vim.keymap.set('n', '<Leader>1', '<C-w>o') -- close all other windows
 -- turn off search highlights
