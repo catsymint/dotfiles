@@ -14,7 +14,7 @@
       "src": "https://github.com/catppuccin/nvim.git"
     },
     "fzf-lua": {
-      "rev": "3b4a5d13adeb33f387d744b6ed777bb5401cba94",
+      "rev": "39dcc9318650a44eae66f9a500f55bb2dfa96175",
       "src": "https://github.com/ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
@@ -42,7 +42,7 @@
       "src": "https://github.com/MunifTanjim/nui.nvim.git"
     },
     "nvim-lspconfig": {
-      "rev": "e0fae251f8459940331960106d4bd9457cec23de",
+      "rev": "a2a277114dbb93e98f04b5087a9b832918b7da15",
       "src": "https://github.com/neovim/nvim-lspconfig.git"
     },
     "nvim-notify": {
