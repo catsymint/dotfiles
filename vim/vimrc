@@ -1,0 +1,86 @@
+" general
+set autoread " reread file when changed
+set autowrite " auto-save in certain situations
+set hidden " keep buffers loaded even when hidden
+set mouse=a " enable mouse support
+set number " show line numbers
+set ruler " enable line/column numbers in status
+set scrolloff=4 " lines of context to show when scrolling
+set sidescrolloff=8 " same but horizontally
+set signcolumn=yes " always show diagnostic gutter
+set showmatch " highlight opening bracket when typing close bracket
+set smoothscroll " smoothly scroll within wrpped lines
+set title " set terminal title
+set virtualedit+=block " enable virtual editing in visual block
+
+" theme
+syntax enable
+colorscheme torte
+
+" list/whitespace
+set list
+set listchars=extends:…,nbsp:␣,precedes:…,tab:⇥\ ,trail:·
+set showbreak=↳
+
+" formatting
+set autoindent " automatically indent on enter
+set backspace=indent,eol,start " formatting-aware backspace
+set expandtab " expand tabs to spaces
+set formatoptions-=o " disable auto-comment
+set formatoptions-=t " disable auto-wrap
+set formatoptions+=j " join comments
+set formatoptions+=n " format numbered lists
+set formatoptions+=1 " don't break lines after one letter words
+set smarttab " indent/unindent by shiftwidth in leading whitespace
+set shiftwidth=4 " shift by 4 spaces
+set softtabstop=4 " expand tabs to 4 spaces
+set textwidth=78 " wrap lines at 78 characters when pasting/formatting
+autocmd FileType css,html,lua,xhtml,xml setlocal shiftwidth=8 softtabstop=2
+autocmd FileType go,make setlocal noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType hgcommit,gitcommit setlocal formatoptions+=t
+autocmd FileType hgcommit,gitcommit setlocal textwidth=72
+
+" search
+set hlsearch " highlight matches
+set ignorecase " case-insensitive search
+set incsearch " highlight while typing search string
+set smartcase " case-sensitive with uppercase letters
+
+" completion
+set complete-=i " don't search current file for completions
+set completeopt=menu,popup " show completions in popup, with extra info
+
+" backups
+set nobackup
+set noswapfile
+set noundofile
+
+" mappings
+let mapleader = "," " prefix for global shortcuts
+let maplocalleader = "\\" " prefix for buffer-specific shortcuts
+" os-level copy
+noremap <Leader>y "+y
+" os-level paste
+noremap <Leader>p "+p
+" make ^A work in the command line
+cnoremap <C-a> <Home>
+" quit
+nnoremap <Leader>q <Cmd>q<CR>
+" save file
+nnoremap <Leader>w <Cmd>w<CR>
+" open :e
+nnoremap <Leader>e <Esc>:e<Space>
+" split window horizontally
+nnoremap <Leader>h <C-w>s
+" split window vertically
+nnoremap <Leader>v <C-w>v
+" close all other windows
+nnoremap <Leader>1 <C-w>o
+" turn off search highlights
+nnoremap <Leader><Space> <Cmd>noh<CR>
+" next buffer
+nnoremap <Leader><Tab> <Cmd>bn<CR>
+" previous buffer
+nnoremap <Leader><S-Tab> <Cmd>bp<CR>
+" close buffer
+nnoremap <Leader>c <Cmd>bd<CR>
