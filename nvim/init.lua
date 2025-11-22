@@ -207,8 +207,8 @@ vim.keymap.set('c', '<C-a>', '<Home>') -- make ^A work in the command line
 vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>') -- quit
 vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>') -- save file
 -- toggle the file tree
-vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree reveal toggle<CR>')
-vim.keymap.set('n', '<Leader>f', FzfLua.files) -- open fuzzy file finder
+vim.keymap.set('n', '<Leader>f', '<Cmd>Neotree reveal toggle<CR>')
+vim.keymap.set('n', '<Leader>e', FzfLua.files) -- open fuzzy file finder
 -- toggle diagnostic list
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
 vim.keymap.set('n', '<Leader>h', '<C-w>s') -- split window horizontally
