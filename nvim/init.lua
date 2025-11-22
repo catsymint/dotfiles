@@ -1,26 +1,26 @@
 -- plugins
 vim.pack.add({
-    'https://github.com/akinsho/bufferline.nvim.git', -- buffer tabs
-    'https://github.com/folke/noice.nvim.git', -- ui/notif niceties
-    'https://github.com/folke/snacks.nvim.git', -- bigfile/quickload/anims
-    'https://github.com/folke/trouble.nvim.git', -- diagnostic window
-    'https://github.com/ibhagwan/fzf-lua.git', -- fuzzy file finder
-    'https://github.com/lewis6991/gitsigns.nvim.git', -- git in statuscol
-    'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
-    'https://github.com/luukvbaal/statuscol.nvim.git', -- nicer status column
-    'https://github.com/MunifTanjim/nui.nvim.git', -- library
-    'https://github.com/neovim/nvim-lspconfig.git', -- language server setup
-    'https://github.com/nvim-lua/plenary.nvim.git', -- library
-    'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
-    'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
-    'https://github.com/nvim-tree/nvim-web-devicons.git', -- icon library
-    'https://github.com/nvim-treesitter/nvim-treesitter.git', -- syntax
-    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
-    'https://github.com/rcarriga/nvim-notify.git', -- library
-    -- theme
-    { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin' },
-    -- autocompletion
-    { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
+  'https://github.com/akinsho/bufferline.nvim.git', -- buffer tabs
+  'https://github.com/folke/noice.nvim.git', -- ui/notif niceties
+  'https://github.com/folke/snacks.nvim.git', -- bigfile/quickload/anims
+  'https://github.com/folke/trouble.nvim.git', -- diagnostic window
+  'https://github.com/ibhagwan/fzf-lua.git', -- fuzzy file finder
+  'https://github.com/lewis6991/gitsigns.nvim.git', -- git in statuscol
+  'https://github.com/lukas-reineke/indent-blankline.nvim.git', -- scopes
+  'https://github.com/luukvbaal/statuscol.nvim.git', -- nicer status column
+  'https://github.com/MunifTanjim/nui.nvim.git', -- library
+  'https://github.com/neovim/nvim-lspconfig.git', -- language server setup
+  'https://github.com/nvim-lua/plenary.nvim.git', -- library
+  'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
+  'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
+  'https://github.com/nvim-tree/nvim-web-devicons.git', -- icon library
+  'https://github.com/nvim-treesitter/nvim-treesitter.git', -- syntax
+  'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
+  'https://github.com/rcarriga/nvim-notify.git', -- library
+  -- theme
+  { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin' },
+  -- autocompletion
+  { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
 
 -- theme
@@ -33,104 +33,101 @@ require('bufferline').setup()
 require('fzf-lua').setup()
 require('gitsigns').setup()
 require('ibl').setup({
-    -- make guide character lighter than the default pipe
-    indent = { char = '│' },
-    -- don't show scope borders
-    scope = { show_end = false, show_start = false },
+  -- make guide character lighter than the default pipe
+  indent = { char = '│' },
+  -- don't show scope borders
+  scope = { show_end = false, show_start = false },
 })
 require('lualine').setup({ options = {
-    -- make status line span windows
-    globalstatus = true
+  -- make status line span windows
+  globalstatus = true
 }})
 require('neo-tree').setup({
-    window = {
-        width = 30, -- default was 40
-    },
+  window = {
+    width = 30, -- default was 40
+  },
 })
 require('noice').setup({
-    lsp = {
-        override = {
-            -- override the default lsp markdown formatter with noice
-            ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-            -- override the lsp markdown formatter with noice
-            ['vim.lsp.util.stylize_markdown'] = true,
-        },
+  lsp = {
+    override = {
+      -- override the default lsp markdown formatter with noice
+      ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+      -- override the lsp markdown formatter with noice
+      ['vim.lsp.util.stylize_markdown'] = true,
     },
+  },
 })
 require('nvim-treesitter.configs').setup({
-    ensure_installed = {
-        'bash', 'c', 'caddy', 'cmake', 'cpp', 'css', 'csv', 'diff',
-        'dockerfile', 'fish', 'git_config', 'git_rebase', 'gitattributes',
-        'gitcommit', 'gitignore', 'go', 'gpg', 'html', 'ini', 'javascript',
-        'json', 'lua', 'make', 'markdown', 'markdown_inline', 'nim',
-        'printf', 'python', 'query', 'regex', 'requirements', 'ruby', 'rust',
-        'toml', 'typescript', 'vim', 'vimdoc', 'xml', 'zig',
+  ensure_installed = {
+    'bash', 'c', 'caddy', 'cmake', 'cpp', 'css', 'csv', 'diff', 'dockerfile',
+    'fish', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit',
+    'gitignore', 'go', 'gpg', 'html', 'ini', 'javascript', 'json', 'lua',
+    'make', 'markdown', 'markdown_inline', 'nim', 'printf', 'python',
+    'query', 'regex', 'requirements', 'ruby', 'rust', 'toml', 'typescript',
+    'vim', 'vimdoc', 'xml', 'zig',
+  },
+  sync_install = false,
+  auto_install = true,
+  highlight = { enable = true },
+  -- define text objects for classes, functions, and blocks
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ['ac'] = '@class.outer', ['ic'] = '@class.inner',
+        ['af'] = '@function.outer', ['if'] = '@function.inner',
+        ['ab'] = '@block.outer', ['ib'] = '@block.inner',
+      },
+      selection_modes = {
+        ['@class.outer'] = '<c-v>', -- blockwise
+        ['@function.outer'] = 'V', -- linewise
+      },
     },
-    sync_install = false,
-    auto_install = true,
-    highlight = { enable = true },
-    -- define text objects for classes, functions, and blocks
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ['ac'] = '@class.outer',
-                ['ic'] = '@class.inner',
-                ['af'] = '@function.outer',
-                ['if'] = '@function.inner',
-                ['ab'] = '@block.outer',
-                ['ib'] = '@block.inner',
-            },
-            selection_modes = {
-                ['@class.outer'] = '<c-v>', -- blockwise
-                ['@function.outer'] = 'V', -- linewise
-            },
-        },
-        swap = {
-            enable = true,
-            swap_next = {
-                [')c'] = '@class.outer',
-                [')f'] = '@function.outer',
-                [')b'] = '@block.outer',
-            },
-            swap_previous = {
-                ['(c'] = '@class.outer',
-                ['(f'] = '@function.outer',
-                ['(b'] = '@block.outer',
-            },
-        },
-        move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-                [']c'] = '@class.outer',
-                [']f'] = '@function.outer',
-                [']b'] = '@block.outer',
-            },
-            goto_next_end = {
-                [']C'] = '@class.outer',
-                [']F'] = '@function.outer',
-                [']B'] = '@block.outer',
-            },
-            goto_previous_start = {
-                ['[C'] = '@class.outer',
-                ['[f'] = '@function.outer',
-                ['[b'] = '@block.outer',
-            },
-            goto_previous_end = {
-                ['[C'] = '@class.outer',
-                ['[F'] = '@function.outer',
-                ['[B'] = '@block.outer',
-            },
-        },
+    swap = {
+      enable = true,
+      swap_next = {
+        [')c'] = '@class.outer',
+        [')f'] = '@function.outer',
+        [')b'] = '@block.outer',
+      },
+      swap_previous = {
+        ['(c'] = '@class.outer',
+        ['(f'] = '@function.outer',
+        ['(b'] = '@block.outer',
+      },
     },
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        [']c'] = '@class.outer',
+        [']f'] = '@function.outer',
+        [']b'] = '@block.outer',
+      },
+      goto_next_end = {
+        [']C'] = '@class.outer',
+        [']F'] = '@function.outer',
+        [']B'] = '@block.outer',
+      },
+      goto_previous_start = {
+        ['[C'] = '@class.outer',
+        ['[f'] = '@function.outer',
+        ['[b'] = '@block.outer',
+      },
+      goto_previous_end = {
+        ['[C'] = '@class.outer',
+        ['[F'] = '@function.outer',
+        ['[B'] = '@block.outer',
+      },
+    },
+  },
 })
 require('snacks').setup({
-    bigfile = { enabled = true }, -- limit plugins on large files
-    quickfile = { enabled = true }, -- speed up startup time
-    scope = { enabled = true }, -- treesitter-based scope objects
-    scroll = { enabled = true }, -- smooth scrolling for motions
+  bigfile = { enabled = true }, -- limit plugins on large files
+  quickfile = { enabled = true }, -- speed up startup time
+  scope = { enabled = true }, -- treesitter-based scope objects
+  scroll = { enabled = true }, -- smooth scrolling for motions
 })
 require('statuscol').setup()
 require('trouble').setup()
@@ -141,15 +138,15 @@ vim.lsp.enable('pyright') -- python (uv tool install -U pyright)
 
 -- diagnostics
 vim.diagnostic.config({
-    -- replace default ascii icons with fancy ones
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '󰌵',
-        },
+  -- replace default ascii icons with fancy ones
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰌵',
     },
+  },
 })
 
 -- general
@@ -169,11 +166,11 @@ vim.opt.virtualedit:append('block') -- enable virtual editing in visual block
 -- list/whitespace
 vim.opt.list = true
 vim.opt.listchars = {
-    extends = '…',
-    nbsp = '␣',
-    precedes = '…',
-    tab = '⇥ ',
-    trail = '·',
+  extends = '…',
+  nbsp = '␣',
+  precedes = '…',
+  tab = '⇥ ',
+  trail = '·',
 }
 vim.opt.showbreak = '↳'
 
@@ -188,28 +185,27 @@ vim.o.shiftwidth = 4 -- shift by 4 spaces
 vim.o.softtabstop = 4 -- 4 spaces per expanded tab
 vim.o.textwidth = 78 -- wrap lines at 78 characters when pasting/formatting
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'css', 'html', 'lua', 'xhtml', 'xml'},
-    callback = function()
-        vim.bo.shiftwidth = 2
-        vim.bo.softtabstop = 2
-    end
+  pattern = {'css', 'html', 'lua', 'xhtml', 'xml'},
+  callback = function()
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+  end
 })
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'go', 'make'},
-    callback = function()
-        vim.bo.expandtab = false
-        vim.bo.shiftwidth = 8
-        vim.bo.softtabstop = 0
-    end
+  pattern = {'go', 'make'},
+  callback = function()
+    vim.bo.expandtab = false
+    vim.bo.shiftwidth = 8
+    vim.bo.softtabstop = 0
+  end
 })
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'hgcommit', 'gitcommit'},
-    callback = function()
-        vim.local_opt.formatoptons:append('t')
-        vim.bo.textwidth = 78
-    end
+  pattern = {'hgcommit', 'gitcommit'},
+  callback = function()
+    vim.local_opt.formatoptons:append('t')
+    vim.bo.textwidth = 78
+  end
 })
-
 
 -- search
 vim.o.ignorecase = true -- case-insensitive search
