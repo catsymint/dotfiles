@@ -184,8 +184,32 @@ vim.opt.formatoptions:append('j') -- join comments
 vim.opt.formatoptions:append('n') -- format numbered lists
 vim.opt.formatoptions:append('1') -- don't break lines after one letter words
 vim.o.expandtab = true -- expand tabs to spaces
-vim.o.shiftwidth = 4 -- shift by 4 whitespace
-vim.o.softtabstop = 4 -- 4 spaces per tab
+vim.o.shiftwidth = 4 -- shift by 4 spaces
+vim.o.softtabstop = 4 -- 4 spaces per expanded tab
+vim.o.textwidth = 78 -- wrap lines at 78 characters when pasting/formatting
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'css', 'html', 'lua', 'xhtml', 'xml'},
+    callback = function()
+        vim.bo.shiftwidth = 2
+        vim.bo.softtabstop = 2
+    end
+})
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'go', 'make'},
+    callback = function()
+        vim.bo.expandtab = false
+        vim.bo.shiftwidth = 8
+        vim.bo.softtabstop = 0
+    end
+})
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'hgcommit', 'gitcommit'},
+    callback = function()
+        vim.local_opt.formatoptons:append('t')
+        vim.bo.textwidth = 78
+    end
+})
+
 
 -- search
 vim.o.ignorecase = true -- case-insensitive search
