@@ -237,7 +237,7 @@ vim.keymap.set('n', '<Leader>f', FzfLua.files) -- open fuzzy file finder
 vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
 vim.keymap.set('n', '<Leader>s', '<C-w>s') -- split window horizontally
 vim.keymap.set('n', '<Leader>v', '<C-w>v') -- split window vertically
-vim.keymap.set('n', '<Leader>1', '<C-w>o') -- close all other windows
+vim.keymap.set('n', '<Leader>o', '<C-w>o') -- close all other windows
 -- turn off search highlights
 vim.keymap.set('n', '<Leader><Space>', '<Cmd>noh<CR>')
 vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>') -- next buffer
