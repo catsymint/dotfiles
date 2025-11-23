@@ -29,7 +29,10 @@ vim.cmd.colorscheme('catppuccin')
 
 -- setup
 require('blink.cmp').setup()
-require('bufferline').setup()
+require('bufferline').setup({
+  highlights = require('catppuccin.special.bufferline').get_theme(),
+  options = { separator_style = 'slant' },
+})
 require('fzf-lua').setup()
 require('gitsigns').setup()
 require('ibl').setup({
