@@ -255,3 +255,8 @@ vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', '<Leader>r', '<Cmd>lua vim.lsp.buf.rename()<CR>')
 -- show code action menu
 vim.keymap.set('n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+-- go to bufferline tab
+vim.keymap.set('n', '<Leader>0', '<Cmd>BufferLineGoToBuffer 0<CR>')
+for n=1,9 do
+  vim.keymap.set('n', '<Leader>' .. n, '<Cmd>BufferLineGoToBuffer ' .. n .. '<CR>')
+end
