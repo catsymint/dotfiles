@@ -1,4 +1,5 @@
 test -x /opt/homebrew/bin/brew && eval (/opt/homebrew/bin/brew shellenv)
+fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.local/bin
 
 if status is-interactive
