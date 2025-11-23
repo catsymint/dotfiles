@@ -205,7 +205,7 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {'hgcommit', 'gitcommit'},
   callback = function()
-    vim.local_opt.formatoptons:append('t')
+    vim.opt_local.formatoptions:append('t')
     vim.bo.textwidth = 72
   end
 })
