@@ -58,6 +58,7 @@ require('noice').setup({
       -- override the lsp markdown formatter with noice
       ['vim.lsp.util.stylize_markdown'] = true,
     },
+    --signature = { auto_open = { enabled = false } },
   },
 })
 require('nvim-treesitter.configs').setup({
