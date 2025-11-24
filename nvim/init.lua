@@ -29,7 +29,8 @@ vim.cmd.colorscheme('catppuccin')
 
 -- setup
 require('blink.cmp').setup()
-require('bufferline').setup({
+bufferline = require('bufferline')
+bufferline.setup({
   highlights = require('catppuccin.special.bufferline').get_theme(),
   options = { separator_style = 'slant' },
 })
@@ -257,7 +258,7 @@ vim.keymap.set('n', '<Leader>r', '<Cmd>lua vim.lsp.buf.rename()<CR>')
 -- show code action menu
 vim.keymap.set('n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
 -- go to bufferline tab
-vim.keymap.set('n', '<Leader>0', '<Cmd>BufferLineGoToBuffer 0<CR>')
+vim.keymap.set('n', '<Leader>0', function() bufferline.go_to(-1, true) end)
 for n=1,9 do
-  vim.keymap.set('n', '<Leader>' .. n, '<Cmd>BufferLineGoToBuffer ' .. n .. '<CR>')
+  vim.keymap.set('n', '<Leader>' .. n, function() bufferline.go_to(n, true) end)
 end
