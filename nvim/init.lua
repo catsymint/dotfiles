@@ -246,17 +246,17 @@ vim.keymap.set('n', '<Leader><Tab>', '<Cmd>bn<CR>') -- next buffer
 vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>') -- previous buffer
 vim.keymap.set('n', '<Leader>c', '<Cmd>bd<CR>') -- close buffer
 -- jump to definition
-vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 -- show references
-vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 -- jump to implementation(s) (of abstract classes)
-vim.keymap.set('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>')
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 -- display information about the item under the cursor
-vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 -- rename variable/etc.
-vim.keymap.set('n', '<Leader>r', '<Cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
 -- show code action menu
-vim.keymap.set('n', '<Leader>a', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action)
 -- go to bufferline tab
 vim.keymap.set('n', '<Leader>0', function() bufferline.go_to(-1, true) end)
 for n=1,9 do
