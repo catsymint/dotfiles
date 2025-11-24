@@ -197,7 +197,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'go', 'make'},
+  pattern = {'gitconfig', 'go', 'make'},
   callback = function()
     vim.bo.expandtab = false
     vim.bo.shiftwidth = 8
