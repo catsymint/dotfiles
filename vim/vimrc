@@ -76,7 +76,7 @@ nnoremap <Leader>s <C-w>s
 " split window vertically
 nnoremap <Leader>v <C-w>v
 " close all other windows
-nnoremap <Leader>1 <C-w>o
+nnoremap <Leader>o <C-w>o
 " turn off search highlights
 nnoremap <Leader><Space> <Cmd>noh<CR>
 " next buffer
