@@ -28,7 +28,11 @@ require('catppuccin').setup({ auto_integrations = true })
 vim.cmd.colorscheme('catppuccin')
 
 -- setup
-require('blink.cmp').setup()
+require('blink.cmp').setup({
+  completion = {
+    documentation = { auto_show = true },
+  },
+})
 bufferline = require('bufferline')
 bufferline.setup({
   highlights = require('catppuccin.special.bufferline').get_theme(),
@@ -235,8 +239,6 @@ vim.keymap.set('n', '<Leader>e', '<Esc>:e<Space>') -- open :e
 -- toggle the file tree
 vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree toggle<CR>')
 vim.keymap.set('n', '<Leader>f', FzfLua.files) -- open fuzzy file finder
--- toggle diagnostic list
-vim.keymap.set('n', '<Leader>x', '<Cmd>Trouble diagnostics toggle<CR>')
 vim.keymap.set('n', '<Leader>s', '<C-w>s') -- split window horizontally
 vim.keymap.set('n', '<Leader>v', '<C-w>v') -- split window vertically
 vim.keymap.set('n', '<Leader>o', '<C-w>o') -- close all other windows
@@ -257,6 +259,10 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
 -- show code action menu
 vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action)
+-- toggle diagnostic floating window
+vim.keymap.set('n', '<Leader>x', vim.diagnostic.open_float)
+-- toggle diagnostic list
+vim.keymap.set('n', '<Leader>d', '<Cmd>Trouble diagnostics toggle focus=true<CR>')
 -- go to bufferline tab
 vim.keymap.set('n', '<Leader>0', function() bufferline.go_to(-1, true) end)
 for n=1,9 do
