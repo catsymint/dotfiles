@@ -88,10 +88,6 @@ require('nvim-treesitter.configs').setup({
         ['af'] = '@function.outer', ['if'] = '@function.inner',
         ['ab'] = '@block.outer', ['ib'] = '@block.inner',
       },
-      selection_modes = {
-        ['@class.outer'] = '<c-v>', -- blockwise
-        ['@function.outer'] = 'V', -- linewise
-      },
     },
     swap = {
       enable = true,
