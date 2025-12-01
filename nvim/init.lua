@@ -145,12 +145,7 @@ vim.lsp.enable('pyright') -- python (uv tool install -U pyright)
 vim.diagnostic.config({
   -- replace default ascii icons with fancy ones
   signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '󰌵',
-    },
+    text = {'', '', '', '󰌵'},
   },
 })
 
