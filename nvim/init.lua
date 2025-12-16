@@ -131,6 +131,7 @@ require('nvim-treesitter.configs').setup({
 })
 require('snacks').setup({
   bigfile = { enabled = true }, -- limit plugins on large files
+  image = { enabled = true }, -- display images
   quickfile = { enabled = true }, -- speed up startup time
   scope = { enabled = true }, -- treesitter-based scope objects
   scroll = { enabled = true }, -- smooth scrolling for motions
