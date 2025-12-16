@@ -36,7 +36,7 @@ require('blink.cmp').setup({
 bufferline = require('bufferline')
 bufferline.setup({
   highlights = require('catppuccin.special.bufferline').get_theme(),
-  options = { separator_style = 'slant' },
+  options = { separator_style = 'slant', diagnostics = 'nvim_lsp' },
 })
 require('fzf-lua').setup()
 require('gitsigns').setup()
