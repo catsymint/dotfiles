@@ -226,6 +226,7 @@ vim.keymap.set({'n', 'v', 'o'}, '<Leader>p', '"+p') -- os-level paste
 vim.keymap.set('c', '<C-a>', '<Home>') -- make ^A work in the command line
 vim.keymap.set('n', '<Leader>q', '<Cmd>q<CR>') -- quit
 vim.keymap.set('n', '<Leader>w', '<Cmd>w<CR>') -- save file
+vim.keymap.set('n', '<Leader>x', '<Cmd>x<CR>') -- save and quit
 vim.keymap.set('n', '<Leader>e', '<Esc>:e<Space>') -- open :e
 -- toggle the file tree
 vim.keymap.set('n', '<Leader>t', '<Cmd>Neotree toggle<CR>')
@@ -251,7 +252,7 @@ vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename)
 -- show code action menu
 vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action)
 -- toggle diagnostic floating window
-vim.keymap.set('n', '<Leader>x', vim.diagnostic.open_float)
+vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
 -- toggle diagnostic list
 vim.keymap.set('n', '<Leader>d', '<Cmd>Trouble diagnostics toggle focus=true<CR>')
 -- go to bufferline tab
