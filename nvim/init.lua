@@ -57,6 +57,7 @@ require('neo-tree').setup({
 })
 require('noice').setup({
   lsp = {
+    progress = { enabled = false },
     override = {
       -- override the default lsp markdown formatter with noice
       ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
