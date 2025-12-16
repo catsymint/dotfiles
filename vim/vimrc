@@ -69,6 +69,8 @@ cnoremap <C-a> <Home>
 nnoremap <Leader>q <Cmd>q<CR>
 " save file
 nnoremap <Leader>w <Cmd>w<CR>
+" save and quit
+nnoremap <Leader>x <Cmd>x<CR>
 " open :e
 nnoremap <Leader>e <Esc>:e<Space>
 " split window horizontally
