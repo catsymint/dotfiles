@@ -14,13 +14,15 @@ vim.pack.add({
   'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
   'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
   'https://github.com/nvim-tree/nvim-web-devicons.git', -- icon library
-  'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
+  'https://github.com/nvim-treesitter/nvim-treesitter.git', -- syntax
   'https://github.com/rcarriga/nvim-notify.git', -- library
   -- theme
   { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin' },
-  -- syntax
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter.git',
-    version = 'master' },
+  -- syntax objects
+  {
+    src = 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git',
+    version = 'main'
+  },
   -- autocompletion
   { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
@@ -69,68 +71,15 @@ require('noice').setup({
     --signature = { auto_open = { enabled = false } },
   },
 })
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {
-    'bash', 'c', 'caddy', 'cmake', 'cpp', 'css', 'csv', 'diff', 'dockerfile',
-    'fish', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit',
-    'gitignore', 'go', 'gpg', 'html', 'ini', 'javascript', 'json', 'lua',
-    'make', 'markdown', 'markdown_inline', 'nim', 'printf', 'python',
-    'query', 'regex', 'requirements', 'ruby', 'rust', 'toml', 'typescript',
-    'vim', 'vimdoc', 'xml', 'zig',
-  },
-  sync_install = false,
-  auto_install = true,
-  highlight = { enable = true },
-  -- define text objects for classes, functions, and blocks
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['ac'] = '@class.outer', ['ic'] = '@class.inner',
-        ['af'] = '@function.outer', ['if'] = '@function.inner',
-        ['ab'] = '@block.outer', ['ib'] = '@block.inner',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        [')c'] = '@class.outer',
-        [')f'] = '@function.outer',
-        [')b'] = '@block.outer',
-      },
-      swap_previous = {
-        ['(c'] = '@class.outer',
-        ['(f'] = '@function.outer',
-        ['(b'] = '@block.outer',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        [']c'] = '@class.outer',
-        [']f'] = '@function.outer',
-        [']b'] = '@block.outer',
-      },
-      goto_next_end = {
-        [']C'] = '@class.outer',
-        [']F'] = '@function.outer',
-        [']B'] = '@block.outer',
-      },
-      goto_previous_start = {
-        ['[C'] = '@class.outer',
-        ['[f'] = '@function.outer',
-        ['[b'] = '@block.outer',
-      },
-      goto_previous_end = {
-        ['[C'] = '@class.outer',
-        ['[F'] = '@function.outer',
-        ['[B'] = '@block.outer',
-      },
-    },
-  },
+require('nvim-treesitter').install({
+  'bash', 'c', 'caddy', 'cmake', 'cpp', 'css', 'csv', 'diff', 'dockerfile',
+  'fish', 'git_config', 'git_rebase', 'gitattributes', 'gitcommit',
+  'gitignore', 'go', 'gpg', 'html', 'ini', 'javascript', 'json', 'lua',
+  'make', 'markdown', 'markdown_inline', 'nim', 'printf', 'python',
+  'query', 'regex', 'requirements', 'ruby', 'rust', 'toml', 'typescript',
+  'vim', 'vimdoc', 'xml', 'zig'
 })
+require('nvim-treesitter-textobjects').setup({ select = { lookahead = true } })
 require('snacks').setup({
   bigfile = { enabled = true }, -- limit plugins on large files
   image = { enabled = true }, -- display images
@@ -264,3 +213,58 @@ vim.keymap.set('n', '<Leader>0', function() bufferline.go_to(-1, true) end)
 for n=1,9 do
   vim.keymap.set('n', '<Leader>' .. n, function() bufferline.go_to(n, true) end)
 end
+
+-- nvim-treesitter-textobjects mappings
+function select_textobject(group)
+  return function()
+    require('nvim-treesitter-textobjects.select').select_textobject(
+      group, 'textobjects'
+    )
+  end
+end
+function goto_next_start(group)
+  return function()
+    require('nvim-treesitter-textobjects.move').goto_next_start(
+      group, 'textobjects'
+    )
+  end
+end
+function goto_next_end(group)
+  return function()
+    require('nvim-treesitter-textobjects.select').goto_next_end(
+      group, 'textobjects'
+    )
+  end
+end
+function goto_previous_start(group)
+  return function()
+    require('nvim-treesitter-textobjects.move').goto_previous_start(
+      group, 'textobjects'
+    )
+  end
+end
+function goto_previous_end(group)
+  return function()
+    require('nvim-treesitter-textobjects.select').goto_previous_end(
+      group, 'textobjects'
+    )
+  end
+end
+vim.keymap.set({'x', 'o'}, 'ac', select_textobject('@class.outer'))
+vim.keymap.set({'x', 'o'}, 'ic', select_textobject('@class.inner'))
+vim.keymap.set({'x', 'o'}, 'af', select_textobject('@function.outer'))
+vim.keymap.set({'x', 'o'}, 'if', select_textobject('@function.inner'))
+vim.keymap.set({'x', 'o'}, 'ab', select_textobject('@block.outer'))
+vim.keymap.set({'x', 'o'}, 'ib', select_textobject('@block.inner'))
+vim.keymap.set({'n', 'x', 'o'}, ']c', goto_next_start('@class.outer'))
+vim.keymap.set({'n', 'x', 'o'}, ']f', goto_next_start('@function.outer'))
+vim.keymap.set({'n', 'x', 'o'}, ']b', goto_next_start('@block.outer'))
+vim.keymap.set({'n', 'x', 'o'}, ']C', goto_next_end('@class.outer'))
+vim.keymap.set({'n', 'x', 'o'}, ']F', goto_next_end('@function.outer'))
+vim.keymap.set({'n', 'x', 'o'}, ']B', goto_next_end('@block.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[c', goto_previous_start('@class.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[f', goto_previous_start('@function.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[b', goto_previous_start('@block.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[C', goto_previous_end('@class.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[F', goto_previous_end('@function.outer'))
+vim.keymap.set({'n', 'x', 'o'}, '[B', goto_previous_end('@block.outer'))
