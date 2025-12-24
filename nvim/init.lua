@@ -14,11 +14,13 @@ vim.pack.add({
   'https://github.com/nvim-lualine/lualine.nvim.git', -- fancy status line
   'https://github.com/nvim-neo-tree/neo-tree.nvim.git', -- file tree
   'https://github.com/nvim-tree/nvim-web-devicons.git', -- icon library
-  'https://github.com/nvim-treesitter/nvim-treesitter.git', -- syntax
   'https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git', -- ^
   'https://github.com/rcarriga/nvim-notify.git', -- library
   -- theme
   { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin' },
+  -- syntax
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter.git',
+    version = 'master' },
   -- autocompletion
   { src = 'https://github.com/saghen/blink.cmp.git', version = 'v1.8.0' },
 })
