@@ -95,12 +95,12 @@ treesitter = require('nvim-treesitter')
 treesitter.install({
   'bash', 'c', 'caddy', 'cmake', 'comment', 'cpp', 'css', 'csv', 'diff',
   'dockerfile', 'fish', 'git_config', 'git_rebase', 'gitattributes',
-  'gitcommit', 'gitignore', 'go', 'gpg', 'html', 'ini', 'javascript', 'json',
-  'latex', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline', 'nim',
-  'nim_format_string', 'passwd', 'pem', 'perl', 'printf', 'pymanifest',
+  'gitcommit', 'gitignore', 'go', 'gpg', 'html', 'ini', 'java', 'javascript',
+  'json', 'latex', 'lua', 'luadoc', 'make', 'markdown', 'markdown_inline',
+  'nim', 'nim_format_string', 'passwd', 'pem', 'perl', 'printf', 'pymanifest',
   'python', 'query', 'regex', 'requirements', 'robots_txt', 'rst', 'ruby',
-  'rust', 'sourcepawn', 'ssh_config', 'sql', 'toml', 'typescript', 'vim',
-  'vimdoc', 'xml', 'yaml', 'zig'
+  'rust', 'sourcepawn', 'ssh_config', 'sql', 'toml', 'tsx', 'typescript',
+  'vim', 'vimdoc', 'xml', 'yaml', 'zig'
 })
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
