@@ -121,7 +121,8 @@ vim.diagnostic.config({
 -- general
 vim.o.autowrite = true -- auto-save in certain situations
 vim.o.cursorline = true -- highlight line cursor is on
-vim.o.foldcolumn = '1' -- gutter column for folds
+vim.o.foldcolumn = '0' -- disable gutter column for folds
+vim.o.foldlevelstart = 99 -- expand all folds by default
 vim.o.mouse = 'a' -- enable mouse support
 vim.o.number = true -- show line numbers
 vim.o.scrolloff = 4 -- lines of context to show when scrolling
@@ -131,6 +132,8 @@ vim.o.showmatch = true -- highlight opening bracket when typing close bracket
 vim.o.smoothscroll = true -- smoothly scroll within wrapped lines
 vim.o.title = true -- set terminal title
 vim.opt.virtualedit:append('block') -- enable virtual editing in visual block
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldmethod = 'expr'
 
 -- list/whitespace
 vim.opt.list = true
