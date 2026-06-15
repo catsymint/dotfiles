@@ -209,6 +209,8 @@ vim.keymap.set('n', '<Leader><S-Tab>', '<Cmd>bp<CR>') -- previous buffer
 vim.keymap.set('n', '<Leader>c', '<Cmd>bd<CR>') -- close buffer
 -- jump to definition
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+-- jump to type definition
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition)
 -- show references
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 -- jump to implementation(s) (of abstract classes)
