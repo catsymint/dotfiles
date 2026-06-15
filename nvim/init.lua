@@ -87,7 +87,8 @@ require('trouble').setup()
 
 -- lsp
 vim.lsp.enable('clangd') -- c/c++
-vim.lsp.enable('basedpyright') -- python (uv tool install -U basedpyright)
+vim.lsp.enable('ruff') -- python (uv tool install ruff)
+vim.lsp.enable('ty') -- python (uv tool install ty)
 
 -- treesitter
 treesitter = require('nvim-treesitter')
